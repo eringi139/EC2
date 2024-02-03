@@ -1,0 +1,14 @@
+　<body>
+　<header>
+    <% if admin_signed_in? %>
+      <li>
+        <%= button_to "ログアウト", destroy_admin_session_path, method: :delete %>
+      </li>
+   
+    <% end %>
+  </header>
+  <%= yield %>
+</body>
+
+<h1>Topページ</h1>
+
