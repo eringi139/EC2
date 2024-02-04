@@ -1,0 +1,12 @@
+<body>
+　<header>
+    <% if customer_signed_in? %>
+      <li>
+        <%= button_to "ログアウト", destroy_customer_session_path, method: :delete %>
+      </li>
+   
+    <% end %>
+  </header>
+  <%= yield %>
+</body>
+<h1>商品一覧</h1>
