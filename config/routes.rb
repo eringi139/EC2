@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
   
+  devise_for :customers, skip: [:passwords], controllers: {
+  registrations: "public/registrations",
+  sessions: 'public/sessions'
+}
+
   scope module: :public do
     root to: 'homes#top'
-    get '/customers' => 'customers#show'
-    get '/customers/information/:id/edit' => 'customers#edit'
-    patch '/customers/information/:id' => 'customers#update'
-    get '/customers/confirm_withdraw' => 'customers#confirm_withdraw'
-    patch '/customers/withdraw' => 'customers#withdraw'
+    
+    resources :customers, only: [:show, :edit, :update, :confirm_withdraw, :withdraw]
     
     
     get '/about' => 'homes#about'
@@ -26,9 +28,6 @@ devise_for :admin, skip: [:registrations, :passwords], controllers: {
 
 
 
-devise_for :customers, skip: [:passwords], controllers: {
-  registrations: "public/registrations",
-  sessions: 'public/sessions'
-}
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
