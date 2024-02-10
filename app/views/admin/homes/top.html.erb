@@ -1,6 +1,7 @@
 　<body>
 　<header>
     <% if admin_signed_in? %>
+      
       <li>
         <%= button_to "ログアウト", destroy_admin_session_path, method: :delete %>
       </li>
@@ -10,5 +11,5 @@
   <%= yield %>
 </body>
 
-<h1>Topページ</h1>
+<h2>商品一覧</h2>
 
