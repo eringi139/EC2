@@ -1,5 +1,5 @@
 <h3>商品編集</h3>
-<%= form_with model: @items do |f| %>
+<%= form_with model: @item, url: admin_item_path do |f| %>
 
 <div>
   <table>
@@ -20,7 +20,7 @@
     <td><%= f.text_field :price %></td>
   </tr>
   </table>
-  <%= f.submit '保存' %>
+  <%= f.submit '変更を保存' %>
   
   
   
