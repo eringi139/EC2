@@ -1,13 +1,13 @@
-<h1>投稿一覧</h1>
-<% @items.each do |item| %>
-
-  <p>商品名</p>
+<h2>商品一覧(全<%= @items.count %>件)</h2>
+ <% @items.each_slice(3) do |item| %>
+ <ul>
+  <% @items.each do |item| %>
+  <div>
+  <%= image_tag item.image %>
+  <p><%= item.name %></p>
+  <p><%= item.price %></p>
   
-  <p>￥</p>
-  
-  <% if item.image.attached? %>
-    <%= image_tag item.image %>
-  <% else %>
-    <%= image_tag 'no_image' %>
-  <% end %>
+<% end %>
+</ul>
+</div>
 <% end %>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+ 
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
   sessions: "admin/sessions"
 }
@@ -13,7 +14,7 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     
     resources :customers, only: [:show, :edit, :update, :confirm_withdraw, :withdraw]
-    
+    resources :cart_items, only: [:index, :update, :destroy, :delete_all, :create]
     
     get '/about' => 'homes#about'
     get '/items' => 'items#index'
