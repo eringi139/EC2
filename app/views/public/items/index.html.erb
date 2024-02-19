@@ -1,3 +1,14 @@
+<body>
+　<header>
+    <% if customer_signed_in? %>
+      <li>
+        <%= button_to "ログアウト", destroy_customer_session_path, method: :delete %>
+      </li>
+
+    <% end %>
+  </header>
+  <%= yield %>
+
 <h2>商品一覧(全<%= @items.count %>件)</h2>
  <% @items.each_slice(3) do |item| %>
  <ul>
@@ -11,3 +22,4 @@
 </ul>
 </div>
 <% end %>
+</body>
