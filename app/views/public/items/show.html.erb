@@ -4,7 +4,7 @@
   <p>商品説明<%= @item.introduction %></p>
   <p>税込価格<%= @item.price %></p>
 </div>
-<%= form_with model:@item_new, local:true do |f| %>
+<%= form_with model: @cart_item_new, local: true do |f| %>
 　<%= f.hidden_field :item_id, value: @item.id %>
   <%= f.select :amount, *[1..10] %>
   <%= f.submit "Add to Cart" %>

@@ -14,10 +14,12 @@
  <ul>
   <% @items.each do |item| %>
   <div>
+　<%= link_to item_path(item.id) do %>
   <%= image_tag item.image %>
   <p><%= item.name %></p>
   <p><%= item.price %></p>
-  
+  <% end %>
+
 <% end %>
 </ul>
 </div>

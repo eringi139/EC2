@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     
     get '/about' => 'homes#about'
     get '/items' => 'items#index'
-    get '/items/:id' => 'items#show'
+    get '/items/:id' => 'items#show',as: "item"
     
   end
   
