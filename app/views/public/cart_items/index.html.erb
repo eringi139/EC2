@@ -12,9 +12,9 @@
       <%= link_to "カートを空にする", delete_all_cart_items_path, method: :delete %>
        <% @sum = 0 %>
        <% @cart_item.each do |cart_item| %>
-         
+
          <tr>
-            
+
             <td><%= image_tag cart_item.item.image %><%= cart_item.item.name %></td>
             <td><%= cart_item.subtotal%></td>
             <% @sum += (cart_item.item.price * 1.1).floor * cart_item.amount %>

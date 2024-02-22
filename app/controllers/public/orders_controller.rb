@@ -1,11 +1,13 @@
 class Public::OrdersController < ApplicationController
-  before_action :authenticate_member!, only: [:new, :confirm, :thanx, :create :index, :show]
-  
+ 
   def new
+    @order = Order.new
   end
 
   def confirm
-    
+   @cart_items = CartItem.where(customer_id: current_customer.id)
+   @shipping_fee = 800
+   @selected_pay_method = params[:order][:pey_method]
   end
 
   def thanx
@@ -19,4 +21,9 @@ class Public::OrdersController < ApplicationController
 
   def show
   end
+  
+  private
+def order_params
+  params.require(:order).permit(:pay_method, :postal_code, :address, :name)
+end
 end

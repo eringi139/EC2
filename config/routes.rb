@@ -1,14 +1,7 @@
 Rails.application.routes.draw do
   
  
-  namespace :public do
-    get 'orders/new'
-    get 'orders/confirm'
-    get 'orders/thanx'
-    get 'orders/create'
-    get 'orders/index'
-    get 'orders/show'
-  end
+  
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
   sessions: "admin/sessions"
 }
@@ -23,6 +16,7 @@ Rails.application.routes.draw do
     
     resources :customers, only: [:edit, :update, :confirm_withdraw, :withdraw]
     resources :cart_items, only: [:index, :update, :destroy, :create]
+    resources :orders, only: [:new, :confirm, :thanx, :create, :index, :show]
     
     delete '/cart_items/delete_all' => 'cart_items#delete_all', as: 'delete_all_cart_items'
     get 'customers/' => 'customers#show'
