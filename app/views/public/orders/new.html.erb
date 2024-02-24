@@ -3,11 +3,11 @@
 <h4>支払方法</h4>
 <div>
 <p>
-<%= f.radio_button :payment_method, "credit_card" %>
-<%= f.label :payment_method_credit_card, "クレジットカード" %>
+<%= f.radio_button :pay_method, Order.pay_methods.key(0) %>
+<%= f.label :pay_method_credit_card, Order.pay_methods_i18n[:credit_card] %>
 </p>
-<%= f.radio_button :payment_method, "transfer" %>
-<%= f.label :payment_method_transfer, "銀行振込" %>
+<%= f.radio_button :pay_method, Order.pay_methods.key(1) %>
+<%= f.label :pay_method_transfer, Order.pay_methods_i18n[:transfer]%>
 </div>
 
 <h4>お届け先</h4>
