@@ -7,18 +7,18 @@
 <%= f.label :pay_method_credit_card, Order.pay_methods_i18n[:credit_card] %>
 </p>
 <%= f.radio_button :pay_method, Order.pay_methods.key(1) %>
-<%= f.label :pay_method_transfer, Order.pay_methods_i18n[:transfer]%>
+<%= f.label :pay_method_transfer, Order.pay_methods_i18n[:transfer] %>
 </div>
 
 <h4>お届け先</h4>
 <div>
-<%= f.radio_button :address_method, 0, "address" %>
+<%= f.radio_button :address_method, 0 %>
 <%= f.label :address_method_address, "ご自身の住所" %>
 <p><%= "〒#{current_customer.postal_code} #{current_customer.address}" %></p>
 <p><%= "#{current_customer.last_name} #{current_customer.first_name}" %></p>
 </div>
 
-<%= f.radio_button :address_method, 2, "address" %>
+<%= f.radio_button :address_method, 2 %>
 <%= f.label :address_method_address, "新しいお届け先" %>
 <table>
 <tr>
