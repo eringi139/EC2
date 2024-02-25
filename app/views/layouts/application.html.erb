@@ -1,17 +1,102 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>EC</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>NaganoCake</title>
+    
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+　　<meta name="viewport" content="width=device-width,initial-scale=1">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+ <body>
+  <header>
+    <nav>
+    <div>
+    <!--adminログイン時のヘッダー-->
+    <% if admin_signed_in? %>
+    <li>
+      <%= link_to admin_items_path do %>
+      <i>商品一覧</i>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to admin_customers_path do %>
+      <i>会員一覧</i>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to admin_root_path do %>
+      <i>注文履歴一覧</i>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to destroy_admin_session_path, method: :delete do %>
+      <i>ログアウト</i>
+      <% end %>
+    </li>
     
+    <% elsif customer_signed_in? %>
+    <li>
+      ようこそ <%= link_to customers_path do %>
+      <strong><%= current_customer.last_name %></strong>
+      <% end %>
+      さん！
+    </li>
+    <li>
+      <%= link_to customers_path do %>
+      <i>マイページ</i>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to  items_path do %>
+      <i>商品一覧</i>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to cart_items_path do %>
+      <i>カート</i>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to destroy_customer_session_path, method: :delete do %>
+      <i>ログアウト</i>
+      <% end %>
+    </li>
+    
+    <% else %>
+    <!--ログイン前のヘッダー-->
+    <li>
+      <%= link_to about_path do %>
+      <i>About</i>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to items_path do %>
+      <i>商品一覧</i>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to new_customer_registration_path do %>
+      <i>新規登録</i>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to  new_customer_session_path do %>
+      <i>ログイン</i>
+      <% end %>
+    </li>
+    
+    <% end %>
+    </div>
+    </nav>
+  </header>
+  <main>
     <%= yield %>
-  </body>
+  </main>
+  <footer>
+    
+  </footer>
+ </body>
 </html>

@@ -2,7 +2,7 @@ class Public::OrdersController < ApplicationController
  
   def new
     @order = Order.new
-  end
+  end 
 
   def confirm
    @cart_items = CartItem.where(customer_id: current_customer.id)
