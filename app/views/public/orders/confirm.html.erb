@@ -1,2 +1,18 @@
 <% @cart_items.each do |cart_item| %>
+
+<h4>注文情報確認</h4>
+<table>
+ <tr>
+  <th>支払い方法</th>
+  <td><%= @order.pay_method %></td>
+ </tr>
+ <tr>
+   <th>お届け先</th>
+   <td>
+    <%= @order.post_code %> 
+    <%= @order.address %>　 
+    <%= @order.name %>      
+   </td>
+  </tr>
+</table>
 <% end %>
