@@ -44,7 +44,7 @@
 
  <tr>
   <th>支払い方法</th>
-  <td><%= @order.pay_method %></td>
+  <td><%= @order.pay_method_i18n %></td>
   
  </tr>
  <tr>
@@ -55,5 +55,15 @@
     <%= @order.name %>    
    </td>
   </tr>
+  
+  <%= form_with model: @order, url: orders_path, method: :post, local: true do |f| %>
+   <%= f.hidden_field :customer_id %>
+   <%= f.hidden_field :total_price, value: @sum %>
+   <%= f.hidden_field :pay_method %>
+   <%= f.hidden_field :name %>
+   <%= f.hidden_field :address %>
+   <%= f.hidden_field :postal_code %>
+  <%= f.submit "注文を確定する" %>
+ <% end %>
  
 

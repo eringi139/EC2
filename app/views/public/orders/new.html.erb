@@ -23,15 +23,15 @@
 <table>
 <tr>
   <td>郵便番号（ハイフン無し）</td>
-  <td><%= f.text_field :shipping_postcode, id: "customer_postcode" %></td>
+  <td><%= f.text_field :postal_code, id: "customer_postcode" %></td>
 </tr>
 <tr>
   <td>住所</td>
-  <td><%= f.text_field :shipping_address, size: 40, id: "customer_address" %></td>
+  <td><%= f.text_field :address, size: 40, id: "customer_address" %></td>
 </tr>
 <tr>
   <td>宛名</td>
-  <td><%= f.text_field :shipping_name %></td>
+  <td><%= f.text_field :name %></td>
 </tr>
 </table>
 <div>
