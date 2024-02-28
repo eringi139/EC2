@@ -27,9 +27,9 @@
    <% @order.order_details.each do |order_detail| %>
    <tr>
      <td><%= order_detail.item.name %></td>
-     <td><%= change_price_excluding_tax(order_detail.price_including_tax) %></td>
-     <td><%= order_detail.quantity %></td>
-     <td><%= change_price_excluding_tax(order_detail.price_including_tax) * order_detail.amount %>円</td>
+     <td><%= order_detail.price %></td>
+     <td><%= @items = order_detail.quantity %></td>
+     <td><%= @sum = order_detail.price %>円</td>
    </tr>
    <% end %>
   </tbody>
@@ -37,15 +37,13 @@
 
 <table>
   <tr>
-    <th>商品合計</th>
-    <td><% @add_tax_total_payment = change_price_excluding_tax(@order.total_payment) %>
-    <%= @add_tax_total_payment %>円
+    <th>商品合計</th> 
+    <td><%= @sum.to_s(:delimited) %>
     </td>
   </tr>
   <tr><th>送料</th><td><%= @order.shipping_fee %>円</td></tr>
   <tr>
     <th>ご請求額</th>
-    <td> <% @total_payment_add_shipping_fee = @add_tax_total_payment + @order.shipping_fee %>
-    <%= @total_payment_add_shipping_fee %> 円</td>
+    <td><%= @order.shipping_fee + @sum %> 円</td>
   </tr>
 </table>

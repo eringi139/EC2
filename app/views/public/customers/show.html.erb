@@ -4,7 +4,7 @@
 
 <h3>マイページ</h3>
 <h3>登録情報</h3>
-<%= link_to "編集する", edit_customer_path(@customer) %>
+<%= link_to "編集する", customer_path(@customer) %>
 
 <div>
   <table>
@@ -36,6 +36,6 @@
 
 </div>
 
-<h3>注文履歴</h3>
+<h3>注文履歴</h3><%= link_to "一覧を見る", orders_path %>
 </body>
 

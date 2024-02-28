@@ -15,7 +15,7 @@
 
          <tr>
 
-            <td><%= image_tag cart_item.item.image %></td>
+            <td><%= image_tag cart_item.item.image, width: "25%" %><%= cart_item.item.name %></td>
             <td><%= cart_item.subtotal.to_s(:delimited) %></td>
             <% @sum += cart_item.subtotal %>
 
