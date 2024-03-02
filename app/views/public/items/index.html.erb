@@ -3,7 +3,7 @@
 
 
 <h2>商品一覧(全<%= @items.count %>件)</h2>
- <% @items.each_slice(3) do |item| %>
+ 
  <ul>
   <% @items.each do |item| %>
   <div>
@@ -13,7 +13,7 @@
   <p><%= item.price.to_s(:delimited) %></p>
   <% end %>
 
-<% end %>
+
 </ul>
 </div>
 <% end %>

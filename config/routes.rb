@@ -23,7 +23,8 @@ Rails.application.routes.draw do
     resources :orders, only: [:new, :create, :index, :show]
     
     
-    
+    get '/customers/confirm_withdraw' => 'customers#confirm_withdraw', as: 'confirm_withdraw_customer'
+    patch '/customers/withdraw' => 'customers#withdraw', as: 'withdraw_customer'
     get 'customers/' => 'customers#show'
     get 'customers/information/edit' => 'customers#edit'
     patch 'customers/information' => 'customers#update', as: 'update_customer'

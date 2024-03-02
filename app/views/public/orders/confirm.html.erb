@@ -19,7 +19,8 @@
    <td><%= cart_item.amount %></td>
    <td><%= cart_item.subtotal.to_s(:delimited) %></td>
    <% @sum += cart_item.subtotal %>
-   <% @items = cart_item.amount %>
+   <% @items = @sum + 800 %>
+
   </tr>
   <% end %>
   </tbody>
@@ -36,26 +37,28 @@
  </tr>
  <tr>
   <th>請求金額</th>
- <td><%= @sum + 800 %></td>
+ <td><%= @items.to_s(:delimited) %></td>
  </tr>
 </table>
 </table>
 
-
- <tr>
-  <th>支払い方法</th>
-  <td><%= @order.pay_method_i18n %></td>
-  
- </tr>
- <tr>
+<table>
+  <tr>
+   <th>支払い方法</th>
+   <td><%= @order.pay_method_i18n %></td>
+  </tr>
+ </table>
+ <table>
+  <tr>
    <th>お届け先</th>
    <td>
-    <%= "〒#{@order.postal_code}" %> 
-    <%= @order.address %>　 
-    <%= @order.name %>    
+    <%= "〒#{@order.postal_code}" %>
+    <%= @order.address %>
+    <%= @order.name %>
    </td>
   </tr>
-  
+  </table>
+
   <%= form_with model: @order, url: orders_path, method: :post, local: true do |f| %>
    <%= f.hidden_field :customer_id %>
    <%= f.hidden_field :total_price, value: @sum %>
@@ -65,5 +68,5 @@
    <%= f.hidden_field :postal_code %>
   <%= f.submit "注文を確定する" %>
  <% end %>
- 
+
 

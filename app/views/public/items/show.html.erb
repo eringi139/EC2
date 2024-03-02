@@ -2,7 +2,7 @@
   <%= image_tag @item.get_image, width: "210px", height: "150px" %>
   <p>商品名<%= @item.name %></p>
   <p>商品説明<%= @item.introduction %></p>
-  <p>税込価格<%= @item.price.to_s(:delimited) %></p>
+  <p>￥<%= @item.with_tax_price.to_s(:delimited) %>（税込）</p>
 </div>
 <%= form_with model: @cart_item_new, local: true do |f| %>
 　<%= f.hidden_field :item_id, value: @item.id %>

@@ -13,9 +13,17 @@
 <% @customers.each do |customer| %>
 <tbody>
   <tr>
+
   <td><%= customer.id %></td>
-  <td><%= customer.last_name %><%= customer.first_name %></td>
+  <td><%= link_to customer.last_name + customer.first_name, admin_customer_path(customer.id) %></td>
   <td><%= customer.email %></td>
+  <td>
+    <% if customer.is_active == true %>
+    <p class="text-success font-weight-bold">有効</p>
+    <% else %>
+    <p class="text-secondary">退会</p>
+    <% end %>
+  </td>
   </tr>
 </tbody>
 <% end %>
